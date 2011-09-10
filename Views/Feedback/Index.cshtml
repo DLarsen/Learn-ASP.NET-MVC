@@ -5,45 +5,6 @@
 }
 
 <h2>Index</h2>
-<script>
-    $(function () {
-
-        loadCounts();
-
-        $('#submit').click(function () {
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("Create")',
-                dataType: 'json',
-                data: { Author: 'David', Message: 'Dingo!', URL: location.href },
-                success: function (msg) { console.log(msg); }
-            });
-        });
-
-        $('#guava_post').click(function (e) {
-            e.preventDefault();
-            var m = $('#guava_content').val();
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("Create")',
-                dataType: 'json',
-                data: { Author: 'David', Message: m, URL: location.href },
-                success: function (msg) { console.log(msg); $('#popup').fadeOut(200); loadCounts(); }
-            });
-        });
-    });
-
-    function loadCounts(){
-        var url = "http://localhost:58565/API/Feedback/Count?url=" + location.href;
-        $.ajax({
-            type: "GET",
-            url: url,
-            dataType: 'json',
-            success: function (msg) { console.log(msg); $('#guava_count').html(msg); }
-        });
-    }
-</script>
-
 <a href="#" id="submit">Submit</a>
 
 <p>
@@ -89,37 +50,10 @@
 }
 
 </table>
-
-
-<style type="text/css">
-  #guava { font-family: arial; }
-  #sidebar { background-color: black; position: fixed; right: 0; bottom: 0; color: white; padding: 10px;}
-  #popup { background-color: #444; position: fixed; right: 0; bottom: 132px; padding: 15px; border-radius: 10px; border: 4px solid #222; color: #bbb; }
-  #guava #popup textarea { font-family: arial; font-size: 11px; resize: none; width: 200px; height: 70px; border: 0; }
-  #guava input {margin: 5px 0 0; background-color: #777; border: 1px solid #999; font-size: 18px;  color: white; padding: 4px 12px; line-height: 21px; font-size: 14px; }
-  #guava input.action {background-color: #669911; border: 1px solid #77aa33; font-weight: bold; }
-  #guava .count { margin: auto; background-color: #cc3300; color: white; font-weight: bold; border-radius: 100px; text-align: center; min-width: 20px; line-height: 20px; padding: 4px; font-size: 11px; display: block-inline; width: 20px; }
-  #guava #appTitle { color: #999; padding-bottom: 4px; border-bottom: 1px solid #444; margin-bottom: 4px; text-align: center; }
-  #guava .item {margin: 4px 0;}
-  #guava #triangle {
-
-border-top-color: #222;
-border-right-color: transparent;
-border-bottom-color: transparent;
-border-left-color: transparent;
-border-style: solid;
-border-width:  12px 12px 0 12px;
-width: 0px;
-position: fixed;
-right: 50px;
-bottom: 120px;
-  }
-</style>
-</head>
-<div id="guava">
-
+<!--
+<link href="/Content/guava.css" rel="stylesheet" type="text/css" /><div id="guava">
   <div id="sidebar">
-    <div id="appTitle">GUAVABAR</div>
+    <div id="appTitle">Send Feedback</div>
     <div class="item">
       <span id="guava_count" class="count">?</span>
       <span class="label">New Items</span>
@@ -128,7 +62,7 @@ bottom: 120px;
   <div id="popup" style="display: none;">
     Post a comment or question
     <br />
-    <textarea id="guava_content">THIS IS A TEST</textarea>
+    <textarea id="guava_content" rows="4" cols="5">YOU SHOULD NEVER SEE THIS!!!</textarea>
     <div style="text-align: right;">
       <input type="button" value="Cancel"  id="guava_cancel"/>
       <input type="button" class="action" value="Post" id="guava_post" />
@@ -136,3 +70,4 @@ bottom: 120px;
     <div id="triangle"></div>
   </div>
 </div>
+-->
